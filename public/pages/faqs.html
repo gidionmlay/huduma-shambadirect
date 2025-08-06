@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQs</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .parallax-section {
+      height: 100vh;
+      background-attachment: scroll;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: relative;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .overlay-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .overlay-text p {
+      font-size: 1.2rem;
+    }
+
+    .content {
+      height: 60vh;
+      background-color: #f3f3f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKEND: Render FAQ section/category dynamically here -->
+  <div class="parallax-section" id="section1"
+       style="background-image: url('/public/assets/images/IMG_3935.jpg');">
+    <div class="overlay-text">
+      <h1>Welcome to Shamba Direct</h1>
+      <p>Empowering Farmers and Suppliers</p>
+    </div>
+  </div>
+
+  <!-- Spacer content -->
+  <div class="content">Reliable Agricultural Solutions</div>
+
+  <!-- BACKEND: Render FAQ section/category dynamically here -->
+  <div class="parallax-section" id="section2"
+       style="background-image: url('/public/assets/images/IMG_3888.jpg');">
+    <div class="overlay-text">
+      <h1>Smart Input Ordering</h1>
+      <p>Order seeds, fertilizers & tools anytime</p>
+    </div>
+  </div>
+
+  <!-- Spacer content -->
+  <div class="content">We Serve Smallholder & Medium-scale Farmers</div>
+
+  <!-- BACKEND: Render FAQ section/category dynamically here -->
+  <div class="parallax-section" id="section3"
+       style="background-image: url('/public/assets/images/IMG_3935.jpg');">
+    <div class="overlay-text">
+      <h1>Instant Support</h1>
+      <p>Get real-time help and updates via WhatsApp & chatbot</p>
+    </div>
+  </div>
+ 
+  <!-- jQuery Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(window).on("scroll", function () {
+      let scrollTop = $(window).scrollTop();
+      $(".parallax-section").each(function () {
+        let offset = $(this).offset().top;
+        let distance = scrollTop - offset;
+        $(this).css("background-position", "center " + (distance * 0.4) + "px");
+      });
+    });
+  </script>
+</body>
+</html>

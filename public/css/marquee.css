@@ -1,76 +1,34 @@
-.partners-section {
-    background: #f5f5f5;
-    padding: 40px 0;
-    text-align: center;
-  }
-  
-  .partners-section h2 {
-    margin-bottom: 20px;
-    color: #2d7f3e;
-  }
-  
-  .marquee {
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .marquee-content {
-    display: flex;
-    gap: 40px;
-    animation: scroll-left 20s linear infinite;
-  }
-  
-  .marquee-content img {
-    height: 60px;
-    object-fit: contain;
-    opacity: 0.9;
-    transition: transform 0.2s ease;
-  }
-  
-  .marquee-content img:hover {
-    transform: scale(1.1);
-  }
-  
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  /* --- Overall Section Styling --- */
+/* --- Overall Section Styling --- */
 .strategic-partners-section {
-    background-color: #F8F9FB; /* Light background as requested */
-    padding: 80px 20px; /* Ample padding */
+    background-color: #F8F9FB;
+    padding: 80px 20px;
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    text-align: center; /* Center content */
+    text-align: center;
     overflow: hidden; /* Crucial to hide overflowing marquee content */
-    border-bottom: 1px solid #e0e0e0; /* Subtle bottom border for visual hierarchy */
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .strategic-partners-section .strategic-partners-title {
-    font-size: 2.5em; /* Bold title */
+    font-size: 2.5em;
     font-weight: 700;
-    color: #6CBE45; /* Green theme color */
-    margin-bottom: 50px; /* Space above marquee */
+    color: #6CBE45;
+    margin-bottom: 50px;
 }
 
 /* --- Partners Marquee --- */
 .partners-marquee-container {
     width: 100%;
-    overflow: hidden; /* Hides parts of the marquee content outside the container */
+    overflow: hidden;
     white-space: nowrap; /* Ensures all content stays on a single line */
     position: relative;
-    padding: 20px 0; /* Vertical padding for logos */
+    padding: 20px 0;
 }
 
+/* IMPORTANT: For this to work seamlessly, you must have the logo content duplicated in your HTML file. */
 .partners-marquee-content {
-    display: inline-block; /* Makes content behave like a single line block */
-    animation: marquee-scroll 30s linear infinite; /* Animation definition */
-    /* Adjust '30s' for speed. Shorter = faster. */
-    padding-right: 20px; /* Small buffer for smooth loop */
+    display: inline-block;
+    animation: marquee-scroll 30s linear infinite; /* Adjust '30s' for speed. Shorter = faster. */
 }
 
 /* Pause animation on hover */
@@ -81,118 +39,116 @@
 /* Marquee Animation */
 @keyframes marquee-scroll {
     0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); } /* Moves content half its width to loop. Adjust if more duplicates. */
+    100% { transform: translateX(-50%); } /* Moves content half its width to loop. */
 }
 
 .partner-logo-item {
-    display: inline-flex; /* Use flex to align img and tooltip */
-    flex-direction: column; /* Stack img and tooltip vertically if needed */
+    display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 40px; /* Space between logos. Adjust as needed. */
-    height: 80px; /* Fixed height for consistent logo display */
-    vertical-align: middle; /* Align items in line */
-    position: relative; /* For tooltip positioning */
+    margin: 0 40px;
+    height: 80px;
+    vertical-align: middle;
+    position: relative;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .partner-logo-item img {
-    max-height: 100%; /* Ensure image fits within item height */
-    max-width: 120px; /* Max width for logos */
-    object-fit: contain; /* Scales image down while maintaining aspect ratio */
-    filter: grayscale(100%); /* Desaturate logos for a clean look */
-    opacity: 0.6; /* Slight transparency */
+    max-height: 100%;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
     transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .partner-logo-item:hover img {
-    filter: grayscale(0%); /* Full color on hover */
-    opacity: 1; /* Fully opaque on hover */
-    transform: scale(1.05); /* Slight scale up on hover */
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 /* Tooltip Styling */
 .partner-tooltip {
     position: absolute;
-    bottom: -30px; /* Position below the logo */
+    bottom: -30px;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.8em;
     white-space: nowrap;
-    opacity: 0; /* Hidden by default */
-    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    pointer-events: none; /* Allows clicks to pass through */
-    z-index: 20; /* Ensure tooltip is above other content */
+    pointer-events: none;
+    z-index: 20;
 }
 
 .partner-logo-item:hover .partner-tooltip {
-    opacity: 1; /* Show on hover */
-    visibility: visible; /* Show on hover */
+    opacity: 1;
+    visibility: visible;
     transform: translateY(0);
 }
 
-/* --- CTA Button --- */
-.become-partner-cta-btn {
-    display: inline-block;
-    background-color: #6CBE45; /* Your brand green */
-    color: white;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 30px; /* Pill-shaped button */
-    font-size: 1.1em;
-    font-weight: 600;
-    text-decoration: none; /* Remove underline */
-    cursor: pointer;
-    margin-top: 60px; /* Space above button */
-    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.become-partner-cta-btn:hover {
-    background-color: #5BA83A; /* Slightly darker green on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.become-partner-cta-btn:active {
-    transform: translateY(1px);
-}
-
 /* --- Responsive Adjustments --- */
+/* Tablet and Smaller Laptops (up to 1024px) */
 @media (max-width: 1024px) {
-    .strategic-partners-section .strategic-partners-title { font-size: 2.2em; margin-bottom: 40px; }
-    .partner-logo-item { margin: 0 30px; height: 70px; }
-    .partner-logo-item img { max-width: 100px; }
-    .become-partner-cta-btn { padding: 12px 30px; font-size: 1em; margin-top: 50px; }
-
-    /* Adjust marquee speed for fewer items or smaller screens */
-    @keyframes marquee-scroll {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); } /* Ensure consistent loop point */
+    .strategic-partners-section .strategic-partners-title { 
+        font-size: 2.2em; 
+        margin-bottom: 40px; 
+    }
+    .partner-logo-item { 
+        margin: 0 30px; 
+        height: 70px; 
+    }
+    .partner-logo-item img { 
+        max-width: 100px; 
     }
 }
 
+/* Mobile Devices (up to 768px) */
 @media (max-width: 768px) {
-    .strategic-partners-section { padding: 60px 15px; }
-    .strategic-partners-section .strategic-partners-title { font-size: 1.8em; margin-bottom: 30px; }
-    .partner-logo-item { margin: 0 20px; height: 60px; }
-    .partner-logo-item img { max-width: 80px; }
-    .partner-tooltip { font-size: 0.7em; bottom: -25px; }
-    .become-partner-cta-btn { padding: 10px 25px; font-size: 0.9em; margin-top: 40px; }
-
-    /* Faster marquee on mobile if items are smaller */
+    .strategic-partners-section { 
+        padding: 60px 15px; 
+    }
+    .strategic-partners-section .strategic-partners-title { 
+        font-size: 1.8em; 
+        margin-bottom: 30px; 
+    }
+    .partner-logo-item { 
+        margin: 0 20px; 
+        height: 60px; 
+    }
+    .partner-logo-item img { 
+        max-width: 80px; 
+    }
+    .partner-tooltip { 
+        font-size: 0.7em; 
+        bottom: -25px; 
+    }
+    /* Adjust marquee speed for smaller screens */
     .partners-marquee-content {
-        animation-duration: 20s; /* Faster scroll for smaller screens */
+        animation-duration: 25s; 
     }
 }
 
+/* Small Mobile Devices (up to 480px) */
 @media (max-width: 480px) {
-    .strategic-partners-section .strategic-partners-title { font-size: 1.6em; }
-    .partner-logo-item { margin: 0 15px; height: 50px; }
-    .partner-logo-item img { max-width: 60px; }
-}
+    .strategic-partners-section .strategic-partners-title { 
+        font-size: 1.6em; 
+    }
+    .partner-logo-item { 
+        margin: 0 15px; 
+        height: 50px; 
+    }
+    .partner-logo-item img { 
+        max-width: 60px; 
+    }
+    /* Increase animation speed slightly for very small screens */
+    .partners-marquee-content {
+        animation-duration: 20s;
+    }

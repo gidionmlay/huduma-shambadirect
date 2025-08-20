@@ -67,7 +67,7 @@ To integrate your backend with this frontend, follow these guidelines:
    - JS fetch() calls include basic error handling and display user-friendly messages on failure.
    - Backend should return clear error messages and appropriate HTTP status codes.
 
-7. **Extending Functionality**
+7. **Extending Functionality**push
    - To add new dynamic sections, use the same pattern: add a backend comment in HTML and a fetch() call in JS.
 
 ---

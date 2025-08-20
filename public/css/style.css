@@ -9,6 +9,74 @@
     
 
 }
+/* ==== RESET & NORMALIZE ==== */
+
+/* Reset margins/paddings and enforce box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Improve text rendering consistency */
+html {
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in iOS */
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Base font & smooth rendering */
+body {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased; /* Smooth text in Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale;  /* Smooth text in Firefox */
+}
+
+/* Make images & media responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove button/input inconsistencies */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Ensure links inherit colors unless styled */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ensure forms don’t break */
+form {
+  width: 100%;
+}
+
 /* Reset some default styles */
 
 
@@ -650,6 +718,7 @@ a {
         background-image: none; /* **Crucial: Remove wavy line on mobile to prevent distortion** */
         min-height: auto; /* Allow height to adapt */
         gap: 40px; /* Space between stacked steps */
+        z-index: 1;
     }
     .process-step {
         flex: none; /* Disable flex growth when stacked */
@@ -778,7 +847,6 @@ a {
     margin-left: 15px; /* Move arrow slightly on hover */
 }
 
-
 /* --- Right Section: Resource Cards Grid --- */
 .resource-cards-grid {
     flex: 2; /* Allow this column to take more space */
@@ -833,25 +901,103 @@ a {
     margin-bottom: 25px; /* Space before link */
     flex-grow: 1; /* Allow description to take available space */
 }
- 
-    .resource-card { padding: 20px; }
-    .resource-icon { font-size: 1.8em; margin-right: 10px; }
-    .card-title { font-size: 1.1em; }
-    .card-description { font-size: 0.85em; }
-    .card-link { font-size: 0.85em; }
 
+/* --- Media Queries for Responsiveness --- */
 
-@media (max-width: 480px) {
-    .knowledge-intro-col .section-title { font-size: 1.8em; }
-    .knowledge-intro-col .section-subtitle { font-size: 0.8em; }
-    .explore-resources-btn { padding: 10px 20px; font-size: 0.85em; }
-
-    .resource-card { padding: 15px; }
-    .resource-icon { font-size: 1.6em; }
-    .card-title { font-size: 1em; }
-    .card-description { font-size: 0.8em; }
+/* Tablet and Smaller Desktops (less than 992px) */
+@media (max-width: 992px) {
+    .knowledge-container {
+        flex-direction: column; /* Stack columns on smaller screens */
+        gap: 40px;
+        padding: 0 20px;
+    }
+    
+    .knowledge-intro-col {
+        max-width: 100%; /* Full width for the intro column */
+        text-align: center; /* Center align text */
+        padding-top: 0;
+    }
+    
+    .knowledge-intro-col .section-title {
+        font-size: 2.5em; /* Scale down title font size */
+    }
+    
+    .knowledge-intro-col .section-subtitle {
+        font-size: 1em;
+    }
+    
+    .resource-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for better fit */
+        padding-top: 0;
+    }
 }
 
+/* Mobile Devices (less than 768px) */
+@media (max-width: 768px) {
+    .knowledge-section {
+        padding: 60px 15px; /* Reduce overall padding */
+    }
+    
+    .knowledge-intro-col .section-title {
+        font-size: 2em; /* Further scale down title */
+    }
+    
+    .explore-resources-btn {
+        padding: 12px 25px;
+        font-size: 0.9em;
+    }
+    
+    .resource-cards-grid {
+        grid-template-columns: 1fr; /* Single column layout for cards */
+        gap: 20px;
+    }
+    
+    .resource-card {
+        padding: 20px; /* Reduce card padding */
+    }
+}
+
+/* Small Mobile Devices (less than 480px) */
+@media (max-width: 480px) {
+    .knowledge-section {
+        padding: 40px 10px;
+    }
+    
+    .knowledge-intro-col .section-title {
+        font-size: 1.8em;
+    }
+    
+    .knowledge-intro-col .section-subtitle {
+        font-size: 0.9em;
+    }
+    
+    .explore-resources-btn {
+        padding: 10px 20px;
+        font-size: 0.85em;
+    }
+
+    .resource-card {
+        padding: 15px;
+    }
+
+    .card-icon-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .resource-icon {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+    }
+    
+    .card-title {
+        font-size: 1em;
+    }
+    
+    .card-description {
+        font-size: 0.8em;
+    }
+}
 /* Dynamic Elements - Animations */
 
 /* Staggered Load Animations */
